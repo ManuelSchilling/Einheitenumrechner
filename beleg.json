@@ -20,7 +20,7 @@
 
 ],
     "description": "Progressive web application demonstration",
-    "start_url": "/",
+    "start_url": "/beleg.html",
     "display": "standalone",
     "theme_color": "#21f348",
     "background_color": "#21eef3",
