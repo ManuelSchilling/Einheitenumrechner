@@ -7,7 +7,8 @@ this.addEventListener('install', function(event) {
 				'beleg.json',
 				'beleg.html',
 				'beleg.js',
-				'beleg.css'
+				'beleg.css',
+				'panda.png'
             ]);
         })
     );

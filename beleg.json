@@ -19,7 +19,6 @@
   }
 
 ],
-
     "description": "Progressive web application demonstration",
     "start_url": "/",
     "display": "standalone",
