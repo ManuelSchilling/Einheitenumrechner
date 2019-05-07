@@ -59,9 +59,7 @@ input {
 	box-sizing: border-box;
 	
 }
-#left{
-	 placeholder="write a number here...";
-}
+
 @media screen and (orientation: landscape) {
  	
 .grid-container{

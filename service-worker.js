@@ -1,23 +1,44 @@
-var CACHE_NAME = 'cache_v1';
-var urlsToCache = ['/'];
 
- self.addEventListener('install', e => {
- e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-        return cache.addAll(urlsToCache)
-            .then(() => self.skipWaiting());
-    })
-  )
+this.addEventListener('install', function(event) {
+    console.log('installing....');
+    event.waitUntil(
+        caches.open('v1').then(function(cache) {
+            return cache.addAll([
+				'beleg.json',
+				'beleg.html',
+				'beleg.js',
+				'beleg.css'
+            ]);
+        })
+    );
 });
 
-self.addEventListener('activate', event => {
- event.waitUntil(self.clients.claim());
+this.addEventListener('fetch', function(event) {
+    event.respondWith(
+
+        caches.open('v1').then(function(cache) {
+            return cache.match(event.request).then(function(response) {
+                return response || fetch(event.request).then(function(response) {
+                    cache.put(event.request, response.clone());
+                    return response;
+                });
+            });
+        })
+    );
 });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-        return response || fetch(event.request);
-    })
-  );
+this.addEventListener('activate', function activator(event) {
+    console.log('activate!');
+    event.waitUntil(
+        caches.keys().then(function(keys) {
+            return Promise.all(keys
+                .filter(function(key) {
+                    return key.indexOf('v1') !== 0;
+                })
+                .map(function(key) {
+                    return caches.delete(key);
+                })
+            );
+        })
+    );
 });
