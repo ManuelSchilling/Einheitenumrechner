@@ -1,0 +1,27 @@
+{
+    "short_name": "Converter",
+    "name": "Einheitenumrechner",
+	"icons": [
+  {
+    "src": "/icon.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  },
+  {
+    "src": "https://img.icons8.com/dusk/64/000000/calculator.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  },
+ {
+    "src": "panda.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+
+],
+    "description": "Progressive web application demonstration",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#21f348",
+    "background_color": "#21eef3"
+}
