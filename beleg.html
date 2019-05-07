@@ -5,15 +5,15 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=yes"/>
 	<meta name="description" content="rechnet einige Einheiten um"/> 
-	<meta name="author" content="Manuel Schilling"/>
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="author" content="Manuel Schilling"/>	
 	<meta name="theme-color" content="#317EFB"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="#317EFB"/>
+	<meta name="apple-mobile-web-app-title" content="Einheitenumrechner"/>
 	<link rel="apple-touch-icon" sizes="64x64" href="https://img.icons8.com/dusk/64/000000/calculator.png">
 	<link rel="stylesheet"  href="beleg.css" type="text/css">
 	<link rel="manifest" href="beleg.json" type="text/json">
 	<script src="beleg.js"></script>
-
-
 </head>
 <body onload="onInit();">
 	
@@ -43,7 +43,7 @@
 	</div>
 </body>
 <script>
-	  if ('serviceWorker' in navigator) {
+	if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }).catch(function(err) {
