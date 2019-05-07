@@ -19,9 +19,17 @@
   }
 
 ],
+	
     "description": "Progressive web application demonstration",
     "start_url": "/beleg.html",
+     "scope": ".",
     "display": "standalone",
     "theme_color": "#21f348",
     "background_color": "#21eef3"
+//	"dir": "ltr"
+//"lang": "de-DE"
+// "related_application": [{
+//	"platform": "play",
+//	"url": "https://play.google.com/store/adges/details?id=cheeaun.hackerweb"
+//}]
 }
