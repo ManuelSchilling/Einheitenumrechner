@@ -1,10 +1,10 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'cache_v1';
 var urlsToCache = ['/'];
 
  self.addEventListener('install', e => {
  e.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-        return cache.addAll([urlsToCache])
+        return cache.addAll(urlsToCache)
             .then(() => self.skipWaiting());
     })
   )
