@@ -4,7 +4,7 @@
 	<title>Einheitenumrechner</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=yes"/>
-	<meta name="description" content="rechnet einige Einheiten um"/> 
+	<meta name="description" content="rechnet einige Einheiten um"/>
 	<meta name="author" content="Manuel Schilling"/>
 	<meta name="msapplication-TileImage" content="https://img.icons8.com/dusk/64/000000/calculator.png"/>
 	<meta name="msapplication-TileColor" content="#317EFB"/>
@@ -18,14 +18,14 @@
 	<script src="beleg.js" async></script>
 </head>
 <body onload="onInit();">
-	
+
 	<h1 id="converter">Einheitenumrechner</h1>
 	<div class="select-wrapper"><select aria-labelledby="converter" name="categorySelect" id="categorySelect" onchange="onCategoryChanged(event);"></select></div>
 	</br></br>
 	<div id="grid-container" class="grid-container">
 		<div class=" item1">
-		<input type="number" aria-labelledby="grid-container item1" placeholder="write your number here..." 
-        onfocus="this.placeholder = ''" 
+		<input type="number" aria-labelledby="grid-container item1" placeholder="write your number here..."
+        onfocus="this.placeholder = ''"
         onblur="this.placeholder = 'write your number here...'" id="left" oninput="calculate(event);">
 		</div>
 		<div  id="item4" class="item4">
@@ -35,19 +35,35 @@
 		<h1>=</h1>
 		</div>
 		<div class=" item3">
-		<input type="number" aria-labelledby="grid-container item3" id="right" placeholder="...or here." 
-        onfocus="this.placeholder = ''" 
+		<input type="number" aria-labelledby="grid-container item3" id="right" placeholder="...or here."
+        onfocus="this.placeholder = ''"
         onblur="this.placeholder = '...or here.'" oninput="calculate(event);">
 		</div>
 		<div class=" item5">
 		<div class="select-wrapper"><select aria-labelledby="grid-container item5" name="targetUnitSelect"  id="targetUnitSelect" onchange="calculate(event);"></select></div>
-		</div>	
+		</div>
 	</div>
 </body>
 <script>
 if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			registration.onupdatefound = () => {
+					const installingWorker = registration.installing;
+					installingWorker.onstatechange = () => {
+						switch (installingWorker.state) {
+							case 'installed':
+								if (navigator.serviceWorker.controller) {
+									// new update available
+									resolve(true);
+								} else {
+									// no update available
+									resolve(false);
+								}
+								break;
+						}
+					};
+				};
     }).catch(function(err) {
       //registration failed :(
       console.log('ServiceWorker registration failed: ', err);
