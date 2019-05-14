@@ -1,8 +1,8 @@
-
+let CacheName = 'v2';
 this.addEventListener('install', function(event) {
     console.log('installing....');
     event.waitUntil(
-        caches.open('v1').then(function(cache) {
+        caches.open(CacheName).then(function(cache) {
             return cache.addAll([
 				'beleg.json',
 				'beleg.html',
@@ -27,7 +27,7 @@ this.addEventListener('fetch', function(event) {
               return response;
             }
             var responseToCache = response.clone();
-            caches.open('v1')
+            caches.open(CacheName)
               .then(function(cache) {
                 cache.put(event.request, responseToCache);
               });
@@ -43,7 +43,7 @@ this.addEventListener('activate', function activator(event) {
         caches.keys().then(function(keys) {
             return Promise.all(keys
                 .filter(function(key) {
-                    return key.indexOf('v1') !== 0;
+                    return key.indexOf(CacheName) !== 0;
                 })
                 .map(function(key) {
                     return caches.delete(key);
@@ -51,4 +51,9 @@ this.addEventListener('activate', function activator(event) {
             );
         })
     );
+});
+self.addEventListener('message', function (event) {
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });

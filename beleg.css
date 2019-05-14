@@ -28,9 +28,25 @@ select {
 	background-size:
 		40px;
 	background-repeat: no-repeat;
-		
 }
 
+button{
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color:white;
+	border: 1px solid orange;
+	padding: 5px 5px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	margin: 4px 2px;
+	color: rgb(105, 105, 105);
+}
+button:hover{
+	background-color: orange;
+	color: white;
+}
 .select-wrapper {
 	position:relative;	
 }
