@@ -112,6 +112,7 @@ function calculate(event) {
 	sourcebefore = document.getElementById("sourceUnitSelect").selectedIndex;
   	targetbefore = document.getElementById("targetUnitSelect").selectedIndex;	
   }
+
   source = document.getElementById((event.target.id == "right" ? "right" : "left"));
   target = document.getElementById((source.id == "right" ? "left" : "right"));
 //alert(source); <- info über element und nicht id des Elementes
