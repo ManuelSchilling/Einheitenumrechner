@@ -56,6 +56,7 @@ function onCategoryChanged(event) {
   setSourceUnitOptions(units);
   setTargetUnitOptions(units);
 }
+
 // der Variablen "Element" wird die Eigenschaft des select's mit der ID "sourceUnitSelect" übergeben
 // diese Variable mit Elementeigenschaft wird mit den units der Kategorie übergeben
 function setSourceUnitOptions(units) {
@@ -100,37 +101,40 @@ function calculate(event) {
   targetUnit = category.units[document.getElementById("targetUnitSelect").selectedIndex];
 
   if(sourceIndex == targetIndex){	
-	sourceUnit = category.units[targetbefore];
-	targetUnit = category.units[sourcebefore];
-	document.getElementById("sourceUnitSelect").selectedIndex = targetbefore;
-  	document.getElementById("targetUnitSelect").selectedIndex = sourcebefore;
-	temp = sourcebefore;
-	sourcebefore=targetbefore;
-	targetbefore=temp;
+    sourceUnit = category.units[targetbefore];
+    targetUnit = category.units[sourcebefore];
+    document.getElementById("sourceUnitSelect").selectedIndex = targetbefore;
+      document.getElementById("targetUnitSelect").selectedIndex = sourcebefore;
+    temp = sourcebefore;
+    sourcebefore=targetbefore;
+    targetbefore=temp;
   }
   else{
-	sourcebefore = document.getElementById("sourceUnitSelect").selectedIndex;
+	  sourcebefore = document.getElementById("sourceUnitSelect").selectedIndex;
   	targetbefore = document.getElementById("targetUnitSelect").selectedIndex;	
   }
-
   source = document.getElementById((event.target.id == "right" ? "right" : "left"));
   target = document.getElementById((source.id == "right" ? "left" : "right"));
-//alert(source); <- info über element und nicht id des Elementes
-//alert(source.id); <- id des Elementes
+  //alert(source); <- info über element und nicht id des Elementes
+  //alert(source.id); <- id des Elementes
+  source.value = source.value.replace (/([^0-9.])/g, "");
   sourceVal = source.value;
-
+  
   x = sourceUnit.value;
   y = targetUnit.value;
-  
+    
   if (source.id == "left") {
-	targetVal = sourceVal * (x / y);
+    targetVal =sourceVal * (x / y);
+
   }
   else {
-	targetVal = sourceVal * (y / x);
+    targetVal = sourceVal * (y / x);
   }
   if(sourceVal != "") {
-  	target.value = targetVal;
+    target.value = targetVal;
   }
+  if(target.value == "NaN")
+    target.value = "";
 }
-
+ 
 

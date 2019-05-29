@@ -15,6 +15,7 @@ this.addEventListener('install', function(event) {
 });
 
 this.addEventListener('fetch', function(event) {
+  console.log("fetch...");
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
@@ -37,6 +38,7 @@ this.addEventListener('fetch', function(event) {
       })
     );
 });
+
 this.addEventListener('activate', function activator(event) {
     console.log('activate!');
     event.waitUntil(
