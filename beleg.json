@@ -25,6 +25,7 @@
     "display": "standalone",
     "theme_color": "#21f348",
     "background_color": "#21eef3",
+    "orientation": "portrait",
 	"dir": "ltr",
 	"lang": "de-DE",
  	"related_application": [{
