@@ -1,6 +1,6 @@
 var categories = [
-  { name: "Länge", units: [ 
-	{ name: "Millimeter", value: 1 }, 
+  { name: "Länge", units: [
+	{ name: "Millimeter", value: 1 },
     { name: "Centimeter", value: 10 },
     { name: "Dezimeter", value: 100 },
     { name: "Meter", value:1000 },
@@ -9,23 +9,23 @@ var categories = [
   { name: "Datengröße", units: [
 	{ name: "Byte", value: 1 },
 	{ name: "Kilobyte", value: 1000 },
-	{ name: "Kibibyte", value: 1024 }, 
+	{ name: "Kibibyte", value: 1024 },
 	{ name: "Megabyte", value: (1000 * 1000) },
 	{ name: "Mebibyte", value: (1024 * 1024) },
 	{ name: "Gigabyte", value: (1000 * 1000 * 1000) },
 	{ name: "Gibibyte", value: (1024 * 1024 * 1024) }
-  ]}, 
+  ]},
   { name: "Zeit", units: [
 	{ name: "Millisekunde", value: 1 },
 	{ name: "Sekunde", value: 1000 },
-	{ name: "Minute", value: 60000 }, 
+	{ name: "Minute", value: 60000 },
 	{ name: "Stunde", value: 3600000 }
-  ]}, 
-  { name: "Fläche", units: [ 
+  ]},
+  { name: "Fläche", units: [
 	{ name: "Millimeter^2", value: 1 },
 	{ name: "Centimeter^2", value: 100 },
 	{ name: "Dezimeter^2", value: 10000 },
-	{ name: "Meter^2", value: 1000000 }, 
+	{ name: "Meter^2", value: 1000000 },
 	{ name: "Kilometer^2", value: 1000000000000 }
 	]}
 ];
@@ -39,7 +39,8 @@ var sourcebefore, targetbefore;
 // dem select werden neue Options angefügt, welche den Inhalt des Array "categories[]" besitzen
 // danach kommen zwei Funktionen denen die Unit-Inhalte von der ersten Kategorie übergeben werden
 function onInit() {
-  var categorySelect = document.getElementById("categorySelect"); 
+  window.screen.lockOrientation(orientation);
+  var categorySelect = document.getElementById("categorySelect");
 
   for (let i = 0; i < categories.length; i++) {
     categorySelect.options[i] = new Option(categories[i].name, "cat" + (i + 1));
@@ -49,7 +50,7 @@ function onInit() {
 }
 // eine Funktion, die beim Kategoriewechsel aufgerufen wird, quasie dem select mit ID = "categorySelect"
 // mit dem Index (der gar nicht definiert wird?) des ausgewählten Objektes und dem Array übergeben wir
-// dessen Units an die Funktionen  
+// dessen Units an die Funktionen
 function onCategoryChanged(event) {
   var units = categories[event.target.selectedIndex].units;
 	//alert(event.target.selectedIndex);
@@ -73,7 +74,7 @@ function setTargetUnitOptions(units) {
 // übergeben
 function setSelectOptions(element, units) {
   element.options.length = 0;
-	
+
   for (let i = 0; i < units.length; i++) {
     element.options[i] = new Option(units[i].name, "option" + (i + 1));
   }
@@ -89,7 +90,7 @@ function setSelectOptions(element, units) {
 // wir holen uns zuerst die ausgewählte Kategorie, dann die ausgewählten Options in source und target,
 // dann stellen wir fest in welchem input wir schreiben und schreiben dessen ID auf source, um dann target
 // die ID des anderen Inputs zu geben
-// danach holen wir uns die Umrechnungszahlen und die Variable im input der Quelle 
+// danach holen wir uns die Umrechnungszahlen und die Variable im input der Quelle
 function calculate(event) {
   var category, sourceUnit, targetUnit,
       source, sourceVal, target, targetVal, x, y;
@@ -100,7 +101,7 @@ function calculate(event) {
   sourceUnit = category.units[document.getElementById("sourceUnitSelect").selectedIndex];
   targetUnit = category.units[document.getElementById("targetUnitSelect").selectedIndex];
 
-  if(sourceIndex == targetIndex){	
+  if(sourceIndex == targetIndex){
     sourceUnit = category.units[targetbefore];
     targetUnit = category.units[sourcebefore];
     document.getElementById("sourceUnitSelect").selectedIndex = targetbefore;
@@ -111,7 +112,7 @@ function calculate(event) {
   }
   else{
 	  sourcebefore = document.getElementById("sourceUnitSelect").selectedIndex;
-  	targetbefore = document.getElementById("targetUnitSelect").selectedIndex;	
+  	targetbefore = document.getElementById("targetUnitSelect").selectedIndex;
   }
   source = document.getElementById((event.target.id == "right" ? "right" : "left"));
   target = document.getElementById((source.id == "right" ? "left" : "right"));
@@ -119,10 +120,10 @@ function calculate(event) {
   //alert(source.id); <- id des Elementes
   source.value = source.value.replace (/([^0-9.])/g, "");
   sourceVal = source.value;
-  
+
   x = sourceUnit.value;
   y = targetUnit.value;
-    
+
   if (source.id == "left") {
     targetVal =sourceVal * (x / y);
 
@@ -136,5 +137,3 @@ function calculate(event) {
   if(target.value == "NaN")
     target.value = "";
 }
- 
-
