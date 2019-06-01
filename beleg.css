@@ -2,6 +2,9 @@ html{
 	font-family: "TimesNewRoman", sans-serif;
 	background-color: grey;
 }
+body{
+	orientation: portrait;
+}
 
 h1 {
 	color: white;
@@ -48,7 +51,7 @@ button:hover{
 	color: white;
 }
 .select-wrapper {
-	position:relative;	
+	position:relative;
 }
 .select-wrapper:after {
 
@@ -73,11 +76,11 @@ input {
 	border: 1px solid #F0F3FB;
 	font-size:100%;
 	box-sizing: border-box;
-	
+
 }
 
 @media screen and (orientation: landscape) {
- 	
+
 .grid-container{
 	display: grid;
 	grid-template-columns: 45% 10% 45%;
