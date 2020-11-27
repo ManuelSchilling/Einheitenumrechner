@@ -39,7 +39,7 @@ var sourcebefore, targetbefore;
 // dem select werden neue Options angefügt, welche den Inhalt des Array "categories[]" besitzen
 // danach kommen zwei Funktionen denen die Unit-Inhalte von der ersten Kategorie übergeben werden
 function onInit() {
-  window.screen.orientation.lock(orientation);
+  window.screen.lockOrientation(orientation);
   var categorySelect = document.getElementById("categorySelect");
 
   for (let i = 0; i < categories.length; i++) {
