@@ -40,7 +40,9 @@ var sourcebefore, targetbefore;
 // danach kommen zwei Funktionen denen die Unit-Inhalte von der ersten Kategorie übergeben werden
 function onInit() {
   var ScreenOrientation = window.screen.orientation;
-  ScreenOrientation.lock("landscape");
+  ScreenOrientation.lock("Potrait").catch(function() {
+       console.log("Oriantation Landscape wird auf diesem Gerät nicht unterstützt.");
+});
 //window.screen.lockOrientation(orientation);
   var categorySelect = document.getElementById("categorySelect");
 
