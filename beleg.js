@@ -22,11 +22,11 @@ var categories = [
 	{ name: "Stunde", value: 3600000 }
   ]},
   { name: "Fläche", units: [
-	{ name: "Millimeter^2", value: 1 },
-	{ name: "Centimeter^2", value: 100 },
-	{ name: "Dezimeter^2", value: 10000 },
-	{ name: "Meter^2", value: 1000000 },
-	{ name: "Kilometer^2", value: 1000000000000 }
+	{ name: "Quadratmillimeter", value: 1 },
+	{ name: "Quadratcentimeter", value: 100 },
+	{ name: "Quadratdezimeter", value: 10000 },
+	{ name: "Quadratmeter", value: 1000000 },
+	{ name: "Quadratkilometer", value: 1000000000000 }
 	]}
 ];
 
