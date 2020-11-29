@@ -8,16 +8,21 @@
     "type": "image/png"
   },
   {
+    "src": "/calculator_mask.png",
+    "sizes": "64x64",
+    "type": "image/png",
+    "purpose": "any maskable"
+  },
+  {
     "src": "https://img.icons8.com/dusk/64/000000/calculator.png",
     "sizes": "64x64",
     "type": "image/png"
   },
- {
+  {
     "src": "panda.png",
     "sizes": "512x512",
     "type": "image/png"
   }
-
 ],
     "description": "Progressive web application demonstration",
     "start_url": "https://manuelschilling.github.io/beleg.html",
