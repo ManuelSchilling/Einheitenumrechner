@@ -1,4 +1,4 @@
-let CacheName = 'v9';
+let CacheName = 'v10';
 this.addEventListener('install', function(event) {
     console.log('installing....');
     event.waitUntil(
