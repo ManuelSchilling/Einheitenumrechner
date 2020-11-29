@@ -8,7 +8,8 @@ this.addEventListener('install', function(event) {
 				'beleg.html',
 				'beleg.js',
 				'beleg.css',
-				'panda.png'
+				'panda.png',
+		    		'calculator_mask.png'
             ]);
         })
     );
